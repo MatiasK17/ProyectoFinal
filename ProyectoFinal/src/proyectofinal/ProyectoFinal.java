@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 public class ProyectoFinal {
 
     public static void main(String[] args) {
+        System.out.println("Hola ");
+        
         Scanner input = new Scanner(System.in);
         String nombre,apellido,direccion,correo,tipo,descripcion;
         int cedula,telefono,numSerie;
