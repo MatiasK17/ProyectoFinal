@@ -210,12 +210,13 @@ public class MetodosPFinal {
             if (muebleSeleccionado.equals("Volver al Menú Principal")) {
                 mostrarMenuPrincipal();  // Llamamos al menú principal
             } else {
-                for (Mueble mueble : muebles) {
-                    if (mueble.getDescripcion().equals(muebleSeleccionado)) {
-                        mostrarDetallesMueble(mueble);
-                        break;
+                for (int i = 0; i < muebles.length; i++) {
+                    if (muebles[i].getDescripcion().equals(muebleSeleccionado)) {
+                        mostrarDetallesMueble(muebles[i]);
+                        break;  // Sale del ciclo una vez que encuentra el mueble
                     }
                 }
+
             }
         }
     }
@@ -243,7 +244,8 @@ public class MetodosPFinal {
     // Método para ver el carrito y el total de la compra
     private static void verCarrito() {
         String mensajeCarrito = "Carrito de compras:\n\n";
-        for (Mueble mueble : carrito) {
+        for (int i = 0; i < carrito.size(); i++) {
+            Mueble mueble = carrito.get(i);  // Accedemos al mueble usando el índice
             mensajeCarrito += mueble.getDescripcion() + " - $" + mueble.getPrecio() + "\n";
         }
         mensajeCarrito += "\nTotal de la compra: $" + totalCompra;
@@ -261,7 +263,8 @@ public class MetodosPFinal {
         }
 
         String mensajeCompra = "Productos en el carrito:\n";
-        for (Mueble mueble : carrito) {
+        for (int i = 0; i < carrito.size(); i++) {
+            Mueble mueble = carrito.get(i);  // Usamos el índice para obtener el mueble
             mensajeCompra += mueble.getDescripcion() + " - $" + mueble.getPrecio() + "\n";
         }
         mensajeCompra += "\nTotal de la compra: $" + totalCompra;
@@ -322,9 +325,10 @@ public class MetodosPFinal {
                 JOptionPane.QUESTION_MESSAGE, null, productos, productos[0]);
 
         if (productoSeleccionado != null) {
-            for (Mueble mueble : carrito) {
+            for (int i = 0; i < carrito.size(); i++) {
+                Mueble mueble = carrito.get(i);  // Accedemos al mueble usando el índice
                 if ((mueble.getDescripcion() + " - $" + mueble.getPrecio()).equals(productoSeleccionado)) {
-                    carrito.remove(mueble);
+                    carrito.remove(i);  // Eliminamos el mueble en la posición i
                     totalCompra -= mueble.getPrecio();
                     JOptionPane.showMessageDialog(null, "Producto eliminado del carrito.", "Eliminado", JOptionPane.INFORMATION_MESSAGE, sacarCarrito);
                     break;
