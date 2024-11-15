@@ -91,6 +91,7 @@ public class MetodosPFinal {
     ImageIcon agregadoCarrito = new ImageIcon(MetodosPFinal.class.getResource("/imagenes/agregadoCarrito.jpg"));
     ImageIcon sacarCarrito = new ImageIcon(MetodosPFinal.class.getResource("/imagenes/sacarCarrito.jpg"));
     ImageIcon envio = new ImageIcon(MetodosPFinal.class.getResource("/imagenes/envio.jpg"));
+    ImageIcon verCarrito = new ImageIcon(MetodosPFinal.class.getResource("/imagenes/vercarrito.jpg"));
 
     //Mesas
     Mueble mesa1 = new Mueble("Mesa", 1, 35900, "Mesa de marmol negro", "180x90", mesa1Icon);
@@ -243,18 +244,22 @@ public class MetodosPFinal {
 
     // Método para ver el carrito y el total de la compra
     private static void verCarrito() {
+        ImageIcon verCarrito = new ImageIcon(MetodosPFinal.class.getResource("/imagenes/vercarrito.jpg"));
+        
         String mensajeCarrito = "Carrito de compras:\n\n";
         for (int i = 0; i < carrito.size(); i++) {
             Mueble mueble = carrito.get(i);  // Accedemos al mueble usando el índice
             mensajeCarrito += mueble.getDescripcion() + " - $" + mueble.getPrecio() + "\n";
         }
         mensajeCarrito += "\nTotal de la compra: $" + totalCompra;
-        JOptionPane.showMessageDialog(null, mensajeCarrito, "Carrito y Total", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, mensajeCarrito, "Carrito y Total", JOptionPane.INFORMATION_MESSAGE,verCarrito);
 
         mostrarMenuPrincipal();  // Volver al menú principal
     }
 
     private static void finalizarCompra() {
+        ImageIcon verCarrito = new ImageIcon(MetodosPFinal.class.getResource("/imagenes/vercarrito.jpg"));
+        
         if (carrito.isEmpty()) {
             JOptionPane.showMessageDialog(null, "El carrito está vacío. Agregue productos antes de finalizar la compra.",
                     "Carrito vacío", JOptionPane.WARNING_MESSAGE);
@@ -271,7 +276,7 @@ public class MetodosPFinal {
 
         String[] opciones = {"Finalizar Compra", "Modificar Carrito", "Volver al Menú Principal"};
         int seleccion = JOptionPane.showOptionDialog(null, mensajeCompra, "Resumen de Compra",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,verCarrito , opciones, opciones[0]);
 
         if (seleccion == 0) {  // Finalizar compra
             confirmarEntrega();
@@ -307,6 +312,8 @@ public class MetodosPFinal {
 
     // Modificar carrito eliminando un producto
     private static void modificarCarrito() {
+        ImageIcon verCarrito = new ImageIcon(MetodosPFinal.class.getResource("/imagenes/vercarrito.jpg"));
+        
         ImageIcon sacarCarrito = new ImageIcon(MetodosPFinal.class.getResource("/imagenes/sacarCarrito.jpg"));
         if (carrito.isEmpty()) {
             JOptionPane.showMessageDialog(null, "El carrito está vacío. No hay productos para eliminar.",
@@ -322,7 +329,7 @@ public class MetodosPFinal {
 
         String productoSeleccionado = (String) JOptionPane.showInputDialog(
                 null, "Seleccione el producto que desea eliminar:", "Modificar Carrito",
-                JOptionPane.QUESTION_MESSAGE, null, productos, productos[0]);
+                JOptionPane.QUESTION_MESSAGE, verCarrito, productos, productos[0]);
 
         if (productoSeleccionado != null) {
             for (int i = 0; i < carrito.size(); i++) {
