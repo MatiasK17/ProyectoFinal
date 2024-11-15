@@ -1,24 +1,36 @@
 
 package proyectofinal;
 
+import javax.swing.ImageIcon;
+
 public class Mueble {
     
     String tipo;
     int numSerie;
     double precio;
     String descripcion;
-    double medidas;
+    String medidas;
+    ImageIcon imagen;
     
     //Constructor
     
-    public Mueble(String tipo, int numSerie, double precio, String descripcion, double medidas){
+    public Mueble(String tipo, int numSerie, double precio, String descripcion, String medidas,ImageIcon imagen){
         
         this.tipo = tipo;
         this.numSerie = numSerie;
         this.precio = precio;
         this.descripcion = descripcion;
         this.medidas = medidas;
+        this.imagen =  imagen;
         
+    }
+
+    public void setImagen(ImageIcon imagen) {
+        this.imagen = imagen;
+    }
+
+    public ImageIcon getImagen() {
+        return imagen;
     }
 
     public void setTipo(String tipo) {
@@ -37,7 +49,7 @@ public class Mueble {
         this.descripcion = descripcion;
     }
 
-    public void setMedidas(double medidas) {
+    public void setMedidas(String medidas) {
         this.medidas = medidas;
     }
     
@@ -58,7 +70,7 @@ public class Mueble {
         return descripcion;
     }
 
-    public double getMedidas() {
+    public String getMedidas() {
         return medidas;
     }
     
