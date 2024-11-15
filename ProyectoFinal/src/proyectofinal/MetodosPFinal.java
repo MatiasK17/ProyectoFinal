@@ -95,6 +95,21 @@ public class MetodosPFinal {
     Mueble consola3 = new Mueble("Consola", 13, 18900, "Consola en lapacho", "110x130x40", consola3Icon);
     Mueble consola4 = new Mueble("Consola", 14, 18900, "Consola con velas", "150x45x79 de altura", consola4Icon);
     Mueble consola5 = new Mueble("Consola", 15, 18900, "Consola de teca", "150x45x78 de altura", consola5Icon);
+    
+    //silla
+    Mueble silla1 = new Mueble("Silla",16,8600,"Silla Thonet","Madera natural",0);
+    Mueble silla2 = new Mueble("Silla",17,5900,"Silla Thoner","Respaldo en madera",0);
+    Mueble silla3 = new Mueble("Silla",18,4900,"Silla Roja","Asiento de mimbre",0);
+    Mueble silla4 = new Mueble("Silla",19,5500,"Silla Tapizada","Asiento color blanco",0);
+    Mueble silla5 = new Mueble("Silla",20,6900,"Silla Combinada", "tapizada en terciopelo",0);
+    
+    //espejos
+    Mueble espejo1 = new Mueble("Espejo",21,8500,"Espejo Cuadrado","Marco antiguo","40x40 de lado");
+    Mueble espejo2 = new Mueble("Espejo",22,4500,"Espejo en Petibiri","Marco de madera","68x95 de alto");
+    Mueble espejo3 = new Mueble("Espejo",23,5200,"Espejo Ovalado","Marco antiguo","68x101 de alto");
+    Mueble espejo4 = new Mueble("Espejo",24,7500,"Espejo Rectamgular","Marco de madera","95x68 de alto");
+    Mueble espejo5 = new Mueble("Espejo",25,12500,"Espejo Rectangular","Alto con marco de madera","50x120 de alto");  
+    
 
     
 
